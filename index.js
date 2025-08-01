@@ -226,7 +226,7 @@ app.get("/search", async (req, res) => {
         [query]
       );
       result.rows.forEach(row => {
-        row.category = table.name; // for link construction
+        row.category = table.name; 
       });
       results.push(...result.rows);
     }
@@ -238,7 +238,7 @@ app.get("/search", async (req, res) => {
   }
 });
 app.get("/admin/add-product", (req, res) => {
-  res.render("adminAddProduct"); // you’ll create this EJS file
+  res.render("adminAddProduct"); 
 });
 app.post("/admin/add-product", async (req, res) => {
   const { category, name, price, image_url } = req.body;
@@ -325,6 +325,7 @@ app.get("/contact", (req,res)=>{
 
 
 
+
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running at port ${PORT}`);
 });
