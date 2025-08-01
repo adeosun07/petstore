@@ -84,19 +84,17 @@
             </div>
             <div class="container-home">
                 <% if (petProducts) {%>
-                    <% for(i=0; i<8; i++){ %>
-                        <div class="product">
-                            <a href="/product/pet/<%= petProducts[i].id %>">
-                                <div class="product-img">
-                                    <img src="<%= petProducts[i].pet_url %>" alt="">
-                                </div>
-                                <div class="product-txt">
-                                    <p><%= petProducts[i].pet_name %></p>
-                                    <h3 class="price"><%= petProducts[i].pet_price %></h3>
-                                </div>
-                            </a>
+                    <% for(let i = 0; i < Math.min(petProducts.length, 8); i++) { %>
+                    <div class="product">
+                        <a href="/product/pet/<%= petProducts[i].id %>">
+                        <div class="product-img">
+                            <img src="<%= petProducts[i].pet_url %>" alt="">
                         </div>
-                    <% }; %>
+                        <p><%= petProducts[i].name %></p>
+                        <h3>#<%= petProducts[i].price %></h3>
+                        </a>
+                    </div>
+                    <% } %>
                 <% } %>
         </section>
         <section class="pets-accessory">
@@ -106,7 +104,7 @@
             </div>
             <div class="container-home">
                 <% if (accessoryProducts) {%>
-                    <% for(i=0; i<8; i++){ %>
+                    <% for(let i = 0; i < Math.min(accessoryProducts.length, 8); i++){ %>
                         <div class="product">
                             <a href="/product/accessory/<%= accessoryProducts[i].id %>">
                                 <div class="product-img">
@@ -129,7 +127,7 @@
             </div>
             <div class="container-home">
                 <% if (feedProducts) {%>
-                    <% for(i=0; i<8; i++){ %>
+                    <% for(let i = 0; i < Math.min(feedProducts.length, 8); i++){ %>
                         <div class="product">
                             <a href="/product/feed/<%= feedProducts[i].id %>">
                                 <div class="product-img">
