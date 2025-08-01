@@ -1,5 +1,6 @@
 import express from 'express';
 import session from 'express-session';
+import pgSession from "connect-pg-simple";
 import {fileURLToPath} from 'url';
 import path from 'path';
 import { dirname } from 'path';
@@ -20,10 +21,21 @@ app.use(express.json());
 
 
 
+const PGSession = pgSession(session);
+
 app.use(session({
-  secret: 'pet-store-secret',
+  store: new PGSession({
+    pool: pool, // Use the pool from db.js        
+    tableName: 'user_sessions',
+  }),
+  secret: "pet-store-secret",    // use a strong secret in production
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24, // 1 day
+    sameSite: "lax",             // optional
+    secure: process.env.NODE_ENV === "production"
+  }
 }));
 
 
