@@ -1,0 +1,57 @@
+<%- include("partials/header") %>
+<main style="padding: 30px;">
+  <section class="addProduct">
+    <h2>Add New Product</h2>
+    <form action="/admin/add-product" method="POST">
+      <label>Category:</label>
+      <select name="category" required>
+        <option value="">Select Category</option>
+        <option value="accessory">Accessory</option>
+        <option value="feeds">Feeds</option>
+        <option value="pets">Pets</option>
+        <option value="limitedstocks">Limited Stocks</option>
+        <option value="bestseller">Best Seller</option>
+      </select><br><br>
+
+      <label>Product Name:</label>
+      <input type="text" name="name" required><br><br>
+
+      <label>Price (₦):</label>
+      <input type="number" name="price" required><br><br>
+
+      <label>Image URL:</label>
+      <input type="url" name="image_url" required><br><br>
+
+      <button type="submit">Add Product</button>
+    </form>
+  </section>
+  <section class="updatestatus">
+    <h2>Update product status</h2>
+    <form id="stockForm">
+      <label for="category">Category:</label>
+      <select name="category" id="category" required>
+        <option value="">--Choose Category--</option>
+        <option value="accessory">Accessory</option>
+        <option value="pets">Pets</option>
+        <option value="feeds">Feeds</option>
+        <option value="bestseller">Bestseller</option>
+        <option value="limitedstocks">Limited Stocks</option>
+      </select>
+
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" name="productName" required>
+
+      <label for="status">Stock Status:</label>
+      <select name="status" id="status" required>
+        <option value="">--Choose Status--</option>
+        <option value="in">In Stock</option>
+        <option value="out">Out of Stock</option>
+      </select>
+
+      <button type="submit">Update Stock</button>
+    </form>
+
+    <p id="responseMsg" style="color: white; margin-top: 10px;"></p>
+  </section>
+</main>
+<%- include("partials/footer") %>

@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+<main class="search-results">
+  <h2>Results for "<%= query %>"</h2>
+
+  <% if (results.length === 0) { %>
+    <p>No products matched your search.</p>
+  <% } else { %>
+    <div class="lsContainer">
+      <% results.forEach(product => { %>
+        <div class="product">
+          <a href="/product/<%= product.category %>/<%= product.id %>">
+            <div class="product-img">
+              <img src="<%= product.image %>" alt="<%= product.name %>">
+            </div>
+            <div class="product-txt">
+              <p><%= product.name %></p>
+              <h3 class="price"><%= product.price %></h3>
+            </div>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  <% } %>
+</main>
+<%- include("partials/footer") %>

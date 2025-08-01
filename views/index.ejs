@@ -1,0 +1,194 @@
+<%- include('partials/header') %>
+    <main>
+        <section class="scrolling_info">
+            <div class="info">
+                <p>Free shipping on orders over &#8358;50,000</p>
+            </div>
+        </section>
+        <section class="best_seller">
+            <h2>Our Best Sellers</h2>
+            <div class="container-home">
+                <% if (bsProducts) { %>
+                    <% bsProducts.forEach(product => { %>
+                        <div class="product"><a href="/product/bestseller/<%= product.id %>">
+                            <div class="product-img">
+                                <img src="<%= product.bs_url %>" alt="">
+                            </div>
+                            <div class="product-txt">
+                                <p><%= product.bs_name %></p>
+                                <h3 class="price"><%= product.bs_price %></h3>
+                            </div>
+                        </a></div>
+                   <% }); %>
+                <% } %>
+        </section>
+        <section class="lifestyle">
+            <div class="lifestyle-txt">
+                <div class="wave-container">
+                    <h3 class="wave-text">
+                        <span>H</span><span>A</span><span>P</span><span>P</span><span>Y</span> <span>PET</span>
+                    </h3>
+                </div>
+                <div class="wave-container">
+                    <h3 class="wave-text">
+                        HAPPY <span>H</span><span>O</span><span>M</span><span>E</span>
+                    </h3>
+                </div>
+            </div>
+            <% if (locals.video1, locals.video2){%>
+                <div class="lifestyle-vid">
+                    <video id="videoPlayer" autoplay muted playsinline></video>
+                </div>
+                <script>
+                    const videoList = [
+                        "<%= video1 %>",
+                        "<%= video2 %>"
+                    ];
+                </script>
+            <%}%>
+        </section>
+        <section class="limited_stocks">
+            <h2>Limited Stocks</h2>
+            <div class="lsContainer">
+                <% if (lsProducts) { %>
+                    <% console.log(lsProducts) %>
+                    <% lsProducts.forEach(product => { %>
+                        <div class="product"><a href="/product/limitedstocks/<%= product.id %>">
+                            <div class="product-img">
+                                <img src="<%= product.url %>" alt="">
+                            </div>
+                            <div class="product-txt">
+                                <p><%= product.name %></p>
+                                <h3 class="price"><%= product.price %></h3>
+                            </div>
+                        </a></div>
+                   <% }); %>
+                <% } %>
+            </div>
+        </section>
+        <section class="introduction">
+            <div class="intro-container">
+                <div class="intro-img">
+                    <img src="/images/logo.png" alt="Pet claws essentals logo">
+                </div>
+                <div class="intro-txt">
+                    <h3>Pet Claws Essentials</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo modi tempore porro tempora, ut earum obcaecati, distinctio expedita repudiandae aperiam non in laboriosam sapiente delectus nobis quasi saepe error enim</p>
+                </div>
+            </div>
+        </section>
+        <section class="pets">
+            <div class="tags">
+                <h2>Pets</h2>
+                <h3><a href="/pets">See All</a></h3>
+            </div>
+            <div class="container-home">
+                <% if (petProducts) {%>
+                    <% for(i=0; i<8; i++){ %>
+                        <div class="product">
+                            <a href="/product/pet/<%= petProducts[i].id %>">
+                                <div class="product-img">
+                                    <img src="<%= petProducts[i].pet_url %>" alt="">
+                                </div>
+                                <div class="product-txt">
+                                    <p><%= petProducts[i].pet_name %></p>
+                                    <h3 class="price"><%= petProducts[i].pet_price %></h3>
+                                </div>
+                            </a>
+                        </div>
+                    <% }; %>
+                <% } %>
+        </section>
+        <section class="pets-accessory">
+            <div class="tags">
+                <h2>Pet Accessories</h2>
+                <h3><a href="/accessories">See All</a></h3>
+            </div>
+            <div class="container-home">
+                <% if (accessoryProducts) {%>
+                    <% for(i=0; i<8; i++){ %>
+                        <div class="product">
+                            <a href="/product/accessory/<%= accessoryProducts[i].id %>">
+                                <div class="product-img">
+                                    <img src="<%= accessoryProducts[i].accessory_url %>" alt="">
+                                </div>
+                                <div class="product-txt">
+                                    <p><%= accessoryProducts[i].accessory_name %></p>
+                                    <h3 class="price"><%= accessoryProducts[i].accessory_prie %></h3>
+                                </div>
+                            </a>
+                        </div>
+                    <% }; %>
+                <% } %>
+            </div>
+        </section>
+        <section class="pets-feed">
+            <div class="tags">
+                <h2>Pet feeds</h2>
+                <h3><a href="/feeds">See All</a></h3>
+            </div>
+            <div class="container-home">
+                <% if (feedProducts) {%>
+                    <% for(i=0; i<8; i++){ %>
+                        <div class="product">
+                            <a href="/product/feed/<%= feedProducts[i].id %>">
+                                <div class="product-img">
+                                    <img src="<%= feedProducts[i].feed_url %>" alt="">
+                                </div>
+                                <div class="product-txt">
+                                    <p>Item B</p>
+                                    <h3 class="price"><%= feedProducts[i].feed_price %></h3>
+                                </div>
+                            </a>
+                        </div>
+                    <% }; %>
+                <% } %>
+        </section>
+        <section class="reviews">
+            <div class="review-container">
+                <h2>See Our Reviews</h2>
+                <div class="review">
+                    <h3 class="review_author">Adeosun Oluwatimileyin</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id cum soluta accusamus eum unde cumque voluptatibus eius maxime, labore deleniti incidunt inventore aperiam quis dolores, delectus natus. Sit, natus excepturi?</p>
+                </div>
+                <div class="review">
+                    <h3 class="review_author">Adeosun Oluwatimileyin</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id cum soluta accusamus eum unde cumque voluptatibus eius maxime, labore deleniti incidunt inventore aperiam quis dolores, delectus natus. Sit, natus excepturi?</p>
+                </div>
+            </div>
+        </section>
+        <section class="newsletter">
+            <h2>Subscribe to our NEWSletter to get updates about new pets and pet accessories arrival</h2>
+            <form action="/" method="get">
+                <input type="email" placeholder="Input your email..">
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+        <section class="map">
+            <div id="map"></div>
+        </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const mapDiv = document.getElementById("map");
+                if (!mapDiv) return;
+
+                const uiLatLng = [7.4443, 3.9003];
+
+                const map = L.map('map').setView(uiLatLng, 17);
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+
+                L.marker(uiLatLng)
+                .addTo(map)
+                .bindPopup("University of Ibadan, Nigeria")
+                .openPopup();
+            });
+        </script>
+
+        <section class="to-top">
+            <a href="#">Back To Top</a>
+        </section>
+    </main>
+<%- include('partials/footer') %>

@@ -1,0 +1,64 @@
+<%- include('partials/header') %>
+<main>
+    <div class="title">
+            <h2>Accessories</h2>
+        </div>
+        <div class="lsContainer">
+            <% if (accessoryProducts) { %>
+            <% accessoryProducts.forEach(product => { %>
+                <div class="product">
+                    <a href="/product/accessory/<%= product.id %>">
+                        <div class="product-img">
+                            <img src="<%= product.accessory_url %>" alt="">
+                        </div>
+                        <div class="product-txt">
+                            <p>Item B</p>
+                            <h3 class="price">&#8358;<%= product.accessory_prie %></h3>
+                        </div>
+                    </a>
+                </div>
+            <% }); %>
+            <% } %>
+        </div>
+        <div class="title">
+            <h2>Feeds</h2>
+        </div>
+        <div class="lsContainer">
+            <% if (feedProducts) { %>
+            <% feedProducts.forEach(product => { %>
+                <div class="product">
+                    <a href="/product/feed/<%= product.id %>">
+                        <div class="product-img">
+                            <img src="<%= product.feed_url %>" alt="">
+                        </div>
+                        <div class="product-txt">
+                            <p>Item B</p>
+                            <h3 class="price">&#8358;<%= product.feed_price %></h3>
+                        </div>
+                    </a>
+                </div>
+            <% }); %>
+            <% } %>
+        </div>
+        <div class="title">
+            <h2>Pets</h2>
+        </div>
+        <div class="lsContainer">
+            <% if (petProducts) { %>
+            <% petProducts.forEach(product => { %>
+                <div class="product">
+                    <a href="/product/pet/<%= product.id %>">
+                        <div class="product-img">
+                            <img src="<%= product.pet_url %>" alt="">
+                        </div>
+                        <div class="product-txt">
+                            <p>Item B</p>
+                            <h3 class="price">&#8358;<%= product.pet_price %></h3>
+                        </div>
+                    </a>
+                </div>
+            <% }); %>
+            <% } %>
+        </div>
+</main>
+<%- include('partials/footer') %>

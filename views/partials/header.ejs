@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Claws Essentials - Quality Pet Care Products</title>
+    <meta name="description" content="Shop Pet Claws Essentials for quality pet care products, grooming supplies, and accessories for your furry friends.">
+    <meta name="keywords" content="pet care, pet products, grooming, pet accessories, Pet Claws Essentials">
+    <meta name="author" content="Pet Claws Essentials">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"
+    />
+    <link rel="stylesheet" href="/style.css">
+    <script src="/cart.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="author">
+            <h1>Pet Claws Essentials</h1>
+            <p>Your one-stop shop for quality pet care products</p>
+        </div>
+    </header>
+    <nav>
+        <div class="nav">
+            <div class="menu-icon" id="menuToggle">
+                <svg width="27" height="27" class="menu-icon" fill="#6c6a6a" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 4h18v2H3V4Zm0 7h18v2H3v-2Zm0 7h18v2H3v-2Z"></path>
+                </svg>
+            </div>
+            <ul class="menu" id="mainMenu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/accessories">Accessories</a></li>
+                <li><a href="/feeds">Feeds</a></li>
+                <li><a href="/pets">Pet</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/cart">Cart</a></li>
+                <li><a href="/blog">Blog</a></li>
+            </ul>
+            <div class="search">
+                <input type="text" placeholder="Search for products..." class="searchBar"/>
+                <svg width="27" height="27" class="menu-icon" fill="#6c6a6a" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="m18.031 16.617 4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z"></path>
+                </svg>
+            </div>
+            <div class="profileNcart">
+                <div class="profile">
+                    <a href="/">
+                    <svg width="27" height="27" class="menu-icon" fill="#6c6a6a" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10Zm-4.987-3.744A7.966 7.966 0 0 0 12 20a7.97 7.97 0 0 0 5.167-1.892A6.978 6.978 0 0 0 12.16 16a6.982 6.982 0 0 0-5.147 2.256ZM5.616 16.82A8.975 8.975 0 0 1 12.16 14a8.972 8.972 0 0 1 6.362 2.634 8 8 0 1 0-12.906.187v-.001ZM12 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+                    </svg> 
+                    </a>
+                </div>
+                <div class="cart-icon" id="toggleCart">
+                    <svg width="27" height="27" class="menu-icon" fill="#6c6a6a" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 16V4H2V2h3a1 1 0 0 1 1 1v12h12.438l2-8H8V5h13.72a1 1 0 0 1 .97 1.243l-2.5 10a1 1 0 0 1-.97.757H5a1 1 0 0 1-1-1Zm2 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm12 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"></path>
+                    </svg>
+                    <span id="cart-count">0</span>
+                </div>
+                <div class="cartTab" id="cart">
+                    <p>Shopping Cart</p>
+                    <div class="cart-items"></div>
+                    <div class="btn">
+                        <button id="close-cart">Close</button>
+                        <button id="checkOut">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>

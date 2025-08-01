@@ -1,0 +1,97 @@
+<%- include("partials/header") %>
+  <main>
+    <div class="addToCart">
+        <% if(accessory){ %>
+            <div class="toCartDisplay <%= !accessory.in_stock ? 'out-of-stock' : '' %>">
+                <div class="checkoutImage">
+                    <img src="<%= accessory.accessory_url %>" alt="">
+                </div>
+                <div class="details">
+                    <h1><%= accessory.accessory_name %></h1>
+                    <p class="price"><%= accessory.accessory_prie %></p>
+                    <p class="description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate autem suscipit soluta quos. Assumenda adipisci quibusdam, nostrum soluta.
+                    </p>
+                    <button class="add-to-cart-btn"
+                        data-id="<%= accessory.id %>" 
+                        data-category="accessory"
+                        data-instock="<%= accessory.in_stock %>"><%= accessory.in_stock ? 'Add to Cart' : 'Out of Stock' %></button>
+                        <p id="responseMsg" style="color: white; margin: 10px auto;"></p>
+                </div>
+            </div>
+        <% } else if(pet){ %>
+                <div class="toCartDisplay <%= !pet.in_stock ? 'out-of-stock' : '' %>">
+                    <div class="checkoutImage">
+                        <img src="<%= pet.pet_url %>" alt="">
+                    </div>
+                    <div class="details">
+                        <h1><%= pet.pet_name %></h1>
+                        <p class="price"><%= pet.pet_price %></p>
+                        <p class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate autem suscipit soluta quos. Assumenda adipisci quibusdam, nostrum soluta.
+                        </p>
+                        <button class="add-to-cart-btn"
+                            data-id="<%= pet.id %>" 
+                            data-category="pet"
+                            data-instock="<%= pet.in_stock %>"><%= pet.in_stock ? 'Add to Cart' : 'Out of Stock' %></button>
+                            <p id="responseMsg" style="color: white; margin: 10px auto;"></p>
+                    </div>
+                </div>
+        <% } else if(feed){ %>
+                <div class="toCartDisplay <%= !feed.in_stock ? 'out-of-stock' : '' %>">
+                    <div class="checkoutImage">
+                        <img src="<%= feed.feed_url %>" alt="">
+                    </div>
+                    <div class="details">
+                        <h1><%= feed.feed_name %></h1>
+                        <p class="price"><%= feed.feed_price %></p>
+                        <p class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate autem suscipit soluta quos. Assumenda adipisci quibusdam, nostrum soluta.
+                        </p>
+                        <button class="add-to-cart-btn"
+                            data-id="<%= feed.id %>" 
+                            data-category="feed"
+                            data-instock="<%= feed.in_stock %>"><%= feed.in_stock ? 'Add to Cart' : 'Out of Stock' %></button>
+                            <p id="responseMsg" style="color: white; margin: 10px auto;"></p>
+                    </div>
+                </div>
+        <% } else if(bestseller){ %>
+                <div class="toCartDisplay <%= !bestseller.in_stock ? 'out-of-stock' : '' %>">
+                    <div class="checkoutImage">
+                        <img src="<%= bestseller.bs_url %>" alt="">
+                    </div>
+                    <div class="details">
+                        <h1><%= bestseller.bs_name %></h1>
+                        <p class="price"><%= bestseller.bs_price %></p>
+                        <p class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate autem suscipit soluta quos. Assumenda adipisci quibusdam, nostrum soluta.
+                        </p>
+                        <button class="add-to-cart-btn"
+                            data-id="<%= bestseller.id %>" 
+                            data-category="bestseller"
+                            data-instock="<%= bestseller.in_stock %>"><%= bestseller.in_stock ? 'Add to Cart' : 'Out of Stock' %></button>
+                            <p id="responseMsg" style="color: white; margin: 10px auto;"></p>
+                    </div>
+                </div>
+        <% } else if(limitedstocks){ %>
+                <div class="toCartDisplay <%= !limitedstocks.in_stock ? 'out-of-stock' : '' %>">
+                    <div class="checkoutImage">
+                        <img src="<%= limitedstocks.url %>" alt="">
+                    </div>
+                    <div class="details">
+                        <h1><%= limitedstocks.name %></h1>
+                        <p class="price"><%= limitedstocks.price %></p>
+                        <p class="description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate autem suscipit soluta quos. Assumenda adipisci quibusdam, nostrum soluta.
+                        </p>
+                        <button class="add-to-cart-btn"
+                            data-id="<%= limitedstocks.id %>" 
+                            data-category="limitedstocks"
+                            data-instock="<%= limitedstocks.in_stock %>"><%= limitedstocks.in_stock ? 'Add to Cart' : 'Out of Stock' %></button>
+                            <p id="responseMsg" style="color: white; margin: 10px auto;"></p>
+                    </div>
+                </div>
+        <% } %>
+    </div>
+  </main>
+<%- include("partials/footer") %>
