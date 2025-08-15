@@ -25,15 +25,15 @@ const PGSession = pgSession(session);
 
 app.use(session({
   store: new PGSession({
-    pool: pool, // Use the pool from db.js        
+    pool: pool,        
     tableName: 'user_sessions',
   }),
-  secret: "pet-store-secret",    // use a strong secret in production
+  secret: "pet-store-secret",
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24, // 1 day
-    sameSite: "lax",             // optional
+    maxAge: 1000 * 60 * 60 * 24,
+    sameSite: "lax",
     secure: process.env.NODE_ENV === "production"
   }
 }));
